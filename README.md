@@ -35,7 +35,7 @@ The Vault provider currently supports `token` and `app-id` authentication.
 This module implements a `vault_secret` resource.
 ```
 resource "vault_secret" "aws" {
-    path = "secret/aws/credentials"
+    path = "/secret/aws/credentials"
 }
 ```
 
@@ -53,7 +53,7 @@ provider "vault" {
 }
 
 resource "vault_secret" "aws" {
-    path = "secret/aws/credentials"
+    path = "/secret/aws/credentials"
 }
 
 // Assuming a Vault entry with the following fields:
