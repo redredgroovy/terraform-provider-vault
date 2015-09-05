@@ -13,7 +13,7 @@ This provider currently stores **unencrypted** secrets as plaintext in your `.tf
 
 ### Provider configuration
 This module implements a `vault` provider.
-```
+```apache
 provider "vault" {
     address = "https://vault:8200"
     app_id = "..."
@@ -33,7 +33,7 @@ The Vault provider currently supports `token` and `app-id` authentication.
 
 ### Resource configuration
 This module implements a `vault_secret` resource.
-```
+```apache
 resource "vault_secret" "aws" {
     path = "/secret/aws/credentials"
 }
@@ -45,7 +45,7 @@ resource "vault_secret" "aws" {
 The contents of `path` will be stored as a map in the `data` variable of the resource.
 
 ### Example
-```
+```apache
 provider "vault" {
     address = "https://vault:8200"
     app_id = "eea928cc-2e83-4db7-8ad2-b90b7bd43542"
@@ -56,9 +56,9 @@ resource "vault_secret" "aws" {
     path = "/secret/aws/credentials"
 }
 
-// Assuming a Vault entry with the following fields:
-//   access_key
-//   secret_key
+# Assuming a Vault entry with the following fields:
+#   access_key
+#   secret_key
 provider "aws" {
     access_key = "${vault_secret.aws.data.access_key}"
     secret_key = "${vault_secret.aws.data.secret_key}"
@@ -68,9 +68,9 @@ resource "vault_secret" "cert" {
     path = "/secret/certs/www"
 }
 
-// Assuming a Vault entry with the following fields:
-//   cert
-//   key
+# Assuming a Vault entry with the following fields:
+#   cert
+#   key
 resource "aws_iam_server_certificate" "www" {
     name = "www"
     certificate_body = "${vault_secret.www.data.cert}"
