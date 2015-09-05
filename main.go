@@ -2,11 +2,11 @@ package main
 
 import (
 	"github.com/hashicorp/terraform/terraform"
-    "github.com/redredgroovy/terraform-provider-vault"
+	"github.com/redredgroovy/terraform-provider-vault/vault"
 )
 
 func main() {
 	plugin.Serve(&plugin.ServeOpts{
-		ProviderFunc: vault.Provider()
+		ProviderFunc: vault.Provider,
 	})
 }
