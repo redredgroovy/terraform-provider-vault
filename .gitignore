@@ -1,1 +1,4 @@
 terraform-provider-vault
+
+*.swp
+*.sw?

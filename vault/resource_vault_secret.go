@@ -42,6 +42,11 @@ func resourceServerRead(d *schema.ResourceData, m interface{}) error {
 
 	path := d.Get("path").(string)
 
+	// Strip leading slashs, as the Vault server chokes on duplicates
+	for strings.HasPrefix(path, "/") {
+		path = path[1:]
+	}
+
 	// Build a simple resource ID
 	d.SetId(fmt.Sprintf("path:%s", path)) // TODO: make this more unique
 
