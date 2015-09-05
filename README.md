@@ -57,11 +57,24 @@ resource "vault_secret" "aws" {
 }
 
 // Assuming a Vault entry with the following fields:
-// - access_key
-// - secret__key
+//   access_key
+//   secret_key
 provider "aws" {
     access_key = "${vault_secret.aws.data.access_key}"
     secret_key = "${vault_secret.aws.data.secret_key}"
+}
+
+resource "vault_secret" "cert" {
+    path = "/secret/certs/www"
+}
+
+// Assuming a Vault entry with the following fields:
+//   cert
+//   key
+resource "aws_iam_server_certificate" "www" {
+    name = "www"
+    certificate_body = "${vault_secret.www.data.cert}"
+    private_key = "${vault_secret.www.data.key}"
 }
 ```
 
