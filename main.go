@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/hashicorp/terraform/terraform"
+	"github.com/hashicorp/terraform/plugin"
 	"github.com/redredgroovy/terraform-provider-vault/vault"
 )
 
