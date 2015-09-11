@@ -27,15 +27,11 @@ provider "vault" {
 The Vault provider currently supports `token`, `app-id`, `userpass`, and `ldap`  authentication.
 
 * `address` - (required) URL to the Vault API
-
 * `token` - Explicit token for `token` authentication
-
-* `app_id` - Application ID for `app-id` authentucation
+* `app_id` - Application ID for `app-id` authentication
 * `user_id` - User ID for `app-id` authentication
-
 * `user` - Username for `userpass` authentication
 * `pass` - Password for `userpass` authentication
-
 * `ldapuser` - Username for `ldap` authentication
 * `ldappass` - Password for `ldap` authentication
 
