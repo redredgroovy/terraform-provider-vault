@@ -24,12 +24,20 @@ provider "vault" {
 
 ##### Arguments
 
-The Vault provider currently supports `token` and `app-id` authentication.
+The Vault provider currently supports `token`, `app-id`, `userpass`, and `ldap`  authentication.
 
 * `address` - (required) URL to the Vault API
+
 * `token` - Explicit token for `token` authentication
+
 * `app_id` - Application ID for `app-id` authentucation
 * `user_id` - User ID for `app-id` authentication
+
+* `user` - Username for `userpass` authentication
+* `pass` - Password for `userpass` authentication
+
+* `ldapuser` - Username for `ldap` authentication
+* `ldappass` - Password for `ldap` authentication
 
 ### Resource configuration
 This module implements a `vault_secret` resource.

@@ -29,6 +29,30 @@ func Provider() terraform.ResourceProvider {
 				Optional:    true,
 				Default:     "",
 			},
+			"user": &schema.Schema{
+				Type:        schema.TypeString,
+				Description: "Username for userpass authentication",
+				Optional:    true,
+				Default:     "",
+			},
+			"pass": &schema.Schema{
+				Type:        schema.TypeString,
+				Description: "Password for userpass authentication",
+				Optional:    true,
+				Default:     "",
+			},
+			"ldapuser": &schema.Schema{
+				Type:        schema.TypeString,
+				Description: "Username for LDAP authentication",
+				Optional:    true,
+				Default:     "",
+			},
+			"ldappass": &schema.Schema{
+				Type:        schema.TypeString,
+				Description: "Password for LDAP authentication",
+				Optional:    true,
+				Default:     "",
+			},
 			"token": &schema.Schema{
 				Type:        schema.TypeString,
 				Description: "Token for direct authentication",
